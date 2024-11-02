@@ -9,7 +9,7 @@ public class email {
         System.out.println("Lütfen email hesabınızı giriniz:");
         email = input.nextLine();
 
-        if(email.contains("@gmail.com")) {
+        if(email.endsWith("@gmail.com")) {
             System.out.println("Gmailiniz kabul edilmiştir.");
         }
         else{
