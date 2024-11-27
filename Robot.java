@@ -4,9 +4,10 @@
 
 package frc.robot;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -20,10 +21,10 @@ public class Robot extends TimedRobot {
    * initialization code.
    */
 
-   private Spark leftm1 = new Spark(0);
-   private Spark leftm2 = new Spark(1);
-   private Spark rightm1 = new Spark(2);
-   private Spark rightm2 = new Spark(3);
+   private CANSparkMaxSpark leftm1 = new CANSparkMax(0, MotorType.kBrushless);
+   private CANSparkMaxSpark leftm2 = new CANSparkMax(1, MotorType.kBrushless);
+   private CANSparkMaxSpark rightm1 = new CANSparkMax(2, MotorType.kBrushless);
+   private CANSparkMaxSpark rightm2 = new CANSparkMax(3, MotorType.kBrushless);
 
    private Joystick joyst1 = new Joystick(0);
 
