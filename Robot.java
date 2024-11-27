@@ -22,7 +22,7 @@ public class Robot extends TimedRobot {
    */
 
    private CANSparkMax leftm1 = new CANSparkMax(0, MotorType.kBrushless);
-   private CANSparkMaxleftm2 = new CANSparkMax(1, MotorType.kBrushless);
+   private CANSparkMax leftm2 = new CANSparkMax(1, MotorType.kBrushless);
    private CANSparkMax rightm1 = new CANSparkMax(2, MotorType.kBrushless);
    private CANSparkMax rightm2 = new CANSparkMax(3, MotorType.kBrushless);
 
