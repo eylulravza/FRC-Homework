@@ -21,10 +21,10 @@ public class Robot extends TimedRobot {
    * initialization code.
    */
 
-   private CANSparkMax leftm1 = new CANSparkMax(0, MotorType.kBrushless);
-   private CANSparkMax leftm2 = new CANSparkMax(1, MotorType.kBrushless);
-   private CANSparkMax rightm1 = new CANSparkMax(2, MotorType.kBrushless);
-   private CANSparkMax rightm2 = new CANSparkMax(3, MotorType.kBrushless);
+   private CANSparkMax leftm1 = new CANSparkMax(0, MotorType.kBrushed);
+   private CANSparkMax leftm2 = new CANSparkMax(1, MotorType.kBrushed);
+   private CANSparkMax rightm1 = new CANSparkMax(2, MotorType.kBrushed);
+   private CANSparkMax rightm2 = new CANSparkMax(3, MotorType.kBrushed);
 
    private Joystick joyst1 = new Joystick(0);
 
