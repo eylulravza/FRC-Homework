@@ -34,28 +34,28 @@ public class ArrayNumbers {
         String islem = s.nextLine();
 
         if(islem.equals("+")){
-            int toplama= yenidizi.get(eleman1) + yenidizi.get(eleman2);
+            int toplama= yenidizi.get(eleman1-1) + yenidizi.get(eleman2-1);
             System.out.println("Sonuç:" + toplama);
         }
         else if(islem.equals("-")){
-            int cıkarma= yenidizi.get(eleman1) - yenidizi.get(eleman2);
+            int cıkarma= yenidizi.get(eleman1-1) - yenidizi.get(eleman2-1);
             System.out.println("Sonuç" + cıkarma);
         }
         else if(islem.equals("*")){
-            int carpma = yenidizi.get(eleman1) * yenidizi.get(eleman2);
+            int carpma = yenidizi.get(eleman1-1) * yenidizi.get(eleman2-1);
             System.out.println("Sonuç" + carpma);
         }
         else if(islem.equals("/")){
-            int bolme = yenidizi.get(eleman1) / yenidizi.get(eleman2);
+            int bolme = yenidizi.get(eleman1-1) / yenidizi.get(eleman2-1);
             System.out.println("Sonuç" + bolme);
         }
         else if(islem.equals("ortalama")){
-            int ortalama = (yenidizi.get(eleman1) + yenidizi.get(eleman2))/2;
+            int ortalama = (yenidizi.get(eleman1-1) + yenidizi.get(eleman2-1))/2;
             System.out.println("Sonuç" + ortalama);
         }
         else if(islem.equals("max")){
             int max = yenidizi.get(0);
-            for(int m=1; m>yenidizi.size(); m++){
+            for(int m=1; m<yenidizi.size(); m++){
                 if(yenidizi.get(m)>max){
                     max = yenidizi.get(m);
                 }
