@@ -16,7 +16,19 @@ public class RandomArray {
         for(int i=0; i<dizi.size(); i++){
             System.out.println("Dizinin " + (i+1) +  ". elemanı " + dizi.get(i));
         }
-        Collections.sort(dizi);
+        
+        //Collections.sort(dizi);
+        
+        for(int e=0; e<dizi.size() -1; e++){
+        for(int a=0; a<dizi.size() -1; a++){
+            if(dizi.get(a)> dizi.get(a+1)){
+                int sira = dizi.get(a);
+                dizi.set(a, dizi.get(a + 1));
+                    dizi.set(a+ 1, sira);
+            }
+
+        }
+    }
         
         
          
