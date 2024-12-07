@@ -50,7 +50,7 @@ public class ArrayNumbers {
             System.out.println("Sonuç" + bolme);
         }
         else if(islem.equals("ortalama")){
-            int ortalama = (yenidizi.get(eleman1-1) + yenidizi.get(eleman2-1))/2;
+            int ortalama = (yenidizi.get(0) + yenidizi.get(1) + yenidizi.get(2)+ yenidizi.get(3) + yenidizi.get(4) + yenidizi.get(5))/6;
             System.out.println("Sonuç" + ortalama);
         }
         else if(islem.equals("max")){
