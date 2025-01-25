@@ -23,7 +23,7 @@ public class ElevatorSubsystem extends SubsystemBase{
     private double currentPosition1;
     private double currentPosition2;
 
-    private final double kEncoderTick2Meter = 1.0 / 4096.0 * 0.128 * Math.PI;
+   private final double kEncoderTick2Meter = leftEncoder.getPosition()*(Math.PI)*7.12/4.23;
 
     public ElevatorSubsystem() {
         elevatorMotor2.follow(elevatorMotor1);
