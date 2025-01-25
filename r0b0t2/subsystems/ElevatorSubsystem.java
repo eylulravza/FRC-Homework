@@ -7,22 +7,17 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-
 public class ElevatorSubsystem extends SubsystemBase{
     private SparkMax elevatorMotor1 = new SparkMax(3, MotorType.kBrushed);
     private SparkMax elevatorMotor2 = new SparkMax(4, MotorType.kBrushed);
-    private Encoder elevatorEncoder1;
-    private Encoder elevatorEncoder2;
-    elevatorEncoder1 = elevatorMotor1.getEncoder();
-    elevatorEncoder2 = elevatorMotor2.getEncoder();
-
+    private Encoder elevatorEncoder1 = elevatorMotor1.getEncoder();
+    private Encoder elevatorEncoder2 = elevatorMotor2.getEncoder();
     private PIDController pidController;
     
     private static final double kP = 0.1;
     private static final double kI = 0.0;
     private static final double kD = 0.0;
 
-    elevatorMotor2.follow(elevatorMotor1);
 
     private double targetPosition;  
     private double currentPosition1;
@@ -30,8 +25,8 @@ public class ElevatorSubsystem extends SubsystemBase{
 
     private final double kEncoderTick2Meter = 1.0 / 4096.0 * 0.128 * Math.PI;
 
-
     public ElevatorSubsystem() {
+        elevatorMotor2.follow(elevatorMotor1);
         targetPosition = 0.0;
         pidController = new PIDController(kP, kI, kD);
     }
