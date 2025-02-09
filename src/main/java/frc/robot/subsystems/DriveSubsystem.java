@@ -12,6 +12,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 // import edu.wpi.first.math.controller.PIDController;
 
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
+import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 
 public class DriveSubsystem extends SubsystemBase{
 
@@ -32,6 +36,11 @@ public class DriveSubsystem extends SubsystemBase{
 
     SparkMaxConfig config = new SparkMaxConfig();
 
+    //
+    private final Field2d field = new Field2d();
+    private final DifferentialDriveOdometry odometry =
+        new DifferentialDriveOdometry(new Rotation2d(), 0, 0);
+
     public DriveSubsystem() {
         
         // to make motors follow each other
@@ -43,12 +52,15 @@ public class DriveSubsystem extends SubsystemBase{
         rightFrontEncoder.setPosition(0);
         leftFrontEncoder.setPosition(0);
 
+        SmartDashboard.putData("Field", field);
     }
 
         @Override
         public void periodic() {
             SmartDashboard.putNumber("Right encoder", rightFrontEncoderValue());
             SmartDashboard.putNumber("Left encoder", leftFrontEncoderValue());
+
+            updateOdometry();
         }
     
         public double leftFrontEncoderValue() {
@@ -69,5 +81,19 @@ public class DriveSubsystem extends SubsystemBase{
             differentialDrive.stopMotor();
         }
 
-}
+        public void updateOdometry() {
+            
+            double leftDistance = leftFrontEncoder.getPosition() * 0.01;  
+            double rightDistance = rightFrontEncoder.getPosition() * 0.01;
+    
+            odometry.update(new Rotation2d(), leftDistance, rightDistance);
+    
+            Pose2d currentPose = odometry.getPoseMeters();
+    
+            field.setRobotPose(currentPose);
+    
+            SmartDashboard.putString("Robot Pose", currentPose.toString());
+        }
+      
+    }
 
